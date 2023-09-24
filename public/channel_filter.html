@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JTVServer Login</title>
+    <style>
+      .strike { text-decoration: line-through }
+
+      html,
+      body {
+        display: flex;
+        justify-content: center;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 15px;
+        color: #ffffff;
+      }
+      body {
+        background-image: url(https://jiotv.com/src/resources/images/Redirection-screen_Background.jpg);
+        background-size: cover;
+      }
+      /* form {
+        margin-top: 50px;
+      } */
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 16px 8px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #8ebf42;
+        color: white;
+        padding: 14px 0;
+        margin: 10px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+      a {
+        background-color: #8ebf42;
+        color: white;
+        padding: 14px 0;
+        margin: 10px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        text-decoration: none;
+        justify-content: center;
+        flex: auto;
+      }
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+        color: #ffffff;
+      }
+      button:hover {
+        opacity: 0.8;
+      }
+      a:hover {
+        opacity: 0.8;
+      }
+      .formcontainer {
+        text-align: left;
+        margin: 24px 50px 12px;
+      }
+      .container {
+        padding: 16px 0;
+        text-align: left;
+      }
+      span.psw {
+        float: right;
+        padding-top: 0;
+        padding-right: 15px;
+      }
+      .alert {
+        padding: 20px;
+        color: white;
+      }
+
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .closebtn:hover {
+        color: black;
+      }
+      /* Change styles for span on extra small screens */
+      @media screen and (max-width: 300px) {
+        span.psw {
+          display: block;
+          float: none;
+        }
+      }
+
+      :root {
+        --page-height: 100vh;
+        --page-width: 100vw;
+        --page-margin: 0;
+        --page-padding: 0;
+        --page-text-color: #8e9196;
+        --page-text-color-hover: rgba(255, 255, 255, 1);
+        --page-background-color: #1a1e23;
+        --tab-display: grid;
+        --tab-background-color: rgba(255, 255, 255, 0.03);
+        --display-none: none;
+        --box-sizing: border-box;
+      }
+      *:before,
+      *:after,
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        justify-content: center;
+        margin: var(--page-margin);
+        padding: var(--page-padding);
+      }
+      p {
+        padding: 0 1em;
+      }
+      p span {
+        color: var(--page-text-color-hover);
+      }
+
+      tab-container {
+        display: var(--tab-display);
+        margin-top: 50px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        border: solid rgba(255, 255, 255, 0.03);
+        border-radius: 0.5em;
+        background-color: var(--page-background-color);
+        color: var(--page-text-color);
+      }
+      
+      input:checked + label {
+        color: var(--page-text-color-hover);
+        background-color: rgba(255, 255, 255, 0);
+        transition: all 250ms;
+      }
+      .toggleLabel {
+        cursor: pointer;
+        transition: color 250ms;
+        padding: 1em;
+        border-right: solid 2px var(--page-background-color);
+        background-color: var(--tab-background-color);
+        text-align: center;
+        transition: all 250ms;
+      }
+      .toggleLabel:last-of-type {
+        border: none;
+      }
+      .toggleLabel:hover {
+        color: var(--page-text-color-hover);
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+
+      tab-content {
+        display: var(--tab-display);
+        grid-column: 1 / -1;
+      }
+
+      input#tabToggle01:checked ~ tab-content:not(:nth-of-type(1)),
+      input#tabToggle02:checked ~ tab-content:not(:nth-of-type(2)),
+      input#tabToggle03:checked ~ tab-content:not(:nth-of-type(3)),
+      input#tabToggle04:checked ~ tab-content:not(:nth-of-type(4)) {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <tab-container>
+        <input type="radio" id="tabToggle01" name="tabs" value="1" checked  style="display: none;"/>
+        <label class="toggleLabel" for="tabToggle01" checked="checked"
+          >Filter Channels</label>
+                <tab-content>
+          <form action="/channel_filter" method="POST">
+            <div class="formcontainer">
+              <div class="container">
+                <table>
+                  <tr>
+                      <th>Category</th>
+                      <th>Language</th>
+                      <th>channel</th>
+                    </tr>
+                    <tr>
+                      <td id="CategoryList" style="vertical-align: top;"> </td>
+                      <td id="LanguageList" style="vertical-align: top;"> </td>
+                      <td id="ChannelsList" style="vertical-align: top;"> </td>
+                    </tr>
+                </table>
+                <div >
+
+                </div>
+              </div>
+              <button type="submit">Save</button>
+            </div>
+          </form>
+        </tab-content>
+      </tab-container>
+    </div>
+  </body>
+  <script>
+    let categories;
+    document.body.onload = () => {
+      getcategories();
+    };
+
+    async function getcategories() {
+        let data = await fetch('/channel_filter');
+        filter = await data.json();
+        categories = filter['categoryMap'];
+        languages = filter['languageMap']
+        channels = filter['channels']
+
+        for (let index = 0; index < categories.length; ++index) {
+          const element = categories[index];
+          var checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.name = 'category['+element.id+']';
+          checkbox.value = element.id;
+          checkbox.checked = element.wanted;
+      
+          var label = document.createElement('label')
+          label.appendChild(document.createTextNode(element.value));
+          var br = document.createElement('br');
+          var container = document.getElementById('CategoryList');
+          container.appendChild(checkbox);
+          container.appendChild(label);
+          container.appendChild(br);
+        }
+
+        for (let index = 0; index < languages.length; ++index) {
+          const element = languages[index];
+          var checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.name = 'language['+element.id+']';
+          checkbox.value = element.id;
+          checkbox.checked = element.wanted;
+      
+          var label = document.createElement('label')
+          label.appendChild(document.createTextNode(element.value));
+          var br = document.createElement('br');
+          var container = document.getElementById('LanguageList');
+          container.appendChild(checkbox);
+          container.appendChild(label);
+          container.appendChild(br);
+        }
+
+        for (let index = 0; index < channels.length; ++index) {
+          const element = channels[index];
+          var checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.name = 'channel['+element.channel_id+']';
+          checkbox.value = element.channel_name;
+          checkbox.checked = element.wanted;
+          checkbox.disabled = element.disabled;
+      
+          var label = document.createElement('label')
+          if(element.disabled) {
+            label.classList.add("strike");
+          }
+          label.appendChild(document.createTextNode(element.value));
+          var br = document.createElement('br');
+          var container = document.getElementById('ChannelsList');
+          container.appendChild(checkbox);
+          container.appendChild(label);
+          container.appendChild(br);
+        }
+        //document.getElementById("myDiv").innerHTML = JSON.stringify(categories);
+    }
+  </script>
+</html>
