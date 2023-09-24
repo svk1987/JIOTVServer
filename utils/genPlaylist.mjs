@@ -1,6 +1,17 @@
 import playlist from "./getJsonPlaylist.mjs";
+import fs from "fs";
 
-export default async function genPlaylist(url) {
+function getJsonFileFromFileSystem(filePath) {
+  let file_f;
+  if (fs["existsSync"](filePath)) {
+    file_f = JSON.parse(
+    fs["readFileSync"](filePath, { encoding: "utf8", flag: "r" })
+  );
+  }
+  return file_f;
+}
+
+export default async function genPlaylist(url, c = 0) {
   try {
     let m3u8PlaylistFile =
       '#EXTM3U  x-tvg-url="https://tobalan.github.io/epg.xml.gz"\x0a';
@@ -39,17 +50,36 @@ export default async function genPlaylist(url) {
       16: "French",
     };
 
+    let channel_filter_file = getJsonFileFromFileSystem('channels_filtered.json');
+    var unwanted_category = channel_filter_file['unwanted_category'] || {};
+    var unwanted_language = channel_filter_file['unwanted_language'] || {};
+    var unwanted_channels = channel_filter_file['unwanted_channels'] || {};
+
     // fs
     let response = await playlist();
 
     const ServerUrl = `${url}`;
     for (let resData of response["result"]) {
+
+      if((resData.channelCategoryId in unwanted_category || resData.channelLanguageId in unwanted_language || resData.channel_id in unwanted_channels) && c==1) 
+      {
+        continue;
+      }
+      
       const channel_name = resData["channel_name"];
       const channel_number = resData["channel_id"];
       const channelLogoUrl =
         "https://jiotv.catchup.cdn.jio.com/dare_images/images/" +
         resData["logoUrl"];
-      const channelCategory = genreMap[resData["channelCategoryId"]];
+      var channelCategory = genreMap[resData["channelCategoryId"]];
+      var marathi_channels = [691,612,445,755,414,617,442,691,1146,695,736,1151,153,738,232,735,441,422,1159,846,1342,1346,2763,1326,1548,1705,1706,1217,1223,1228,1273,1293,1358,1360,1412,1419,1420,1422,1423,1424,1452,1894,1933,1972,2071,2254,2424,2758];
+        if (marathi_channels.includes(resData["channel_id"])) {
+          channelCategory = 'Marathi';
+        }
+
+
+
+      
       const channelLanguage = langMap[resData["channelLanguageId"]];
       const logoUrl = resData["logoUrl"].split(".")[0];
       m3u8PlaylistFile += `#EXTINF:-1 tvg-chno="${channel_number}" tvg-name="${channel_name}" tvg-logo="${channelLogoUrl}" tvg-language="${channelLanguage}" tvg-type="${channelCategory}" group-title="${channelCategory}"`;
