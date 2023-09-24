@@ -11,8 +11,13 @@ import jsonPlaylist from "../utils/getJsonPlaylist.mjs";
 const PORT = process.env.DHRUV_JTV_PORT || 3500;
 
 router.get("/playlist", async (req, res) => {
+  var c = 0;
+  if('c' in req.query)
+  {
+    c=  req.query['c'];
+  }
   res.contentType("application/vnd.apple.mpegurl");
-  const playlistData = await playlist(req.protocol + '://' + req.get('host') );
+  const playlistData = await playlist(req.protocol + '://' + req.get('host'), c);
   res.status(200).send(playlistData);
 });
 
