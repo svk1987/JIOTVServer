@@ -14,7 +14,7 @@ function getJsonFileFromFileSystem(filePath) {
 export default async function genPlaylist(url, c = 0) {
   try {
     let m3u8PlaylistFile =
-      '#EXTM3U  x-tvg-url="https://tobalan.github.io/epg.xml.gz"\x0a';
+      '#EXTM3U  x-tvg-url="https://github.com/mitthu786/tvepg/raw/main/jiotv/epg.xml.gz"\x0a';
     const genreMap = {
       8: "Sports",
       5: "Entertainment",
