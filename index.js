@@ -43,6 +43,9 @@ app.get("/admin.html", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "login.html"));
 });
 
+app.get("/customize", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "channel_filter.html"));
+});
 app.use(cors());
 
 import loginRoute from "./routes/login.mjs";
@@ -50,11 +53,13 @@ import ipRoute from "./routes/ip.mjs";
 import channelsRoute from "./routes/channel.mjs";
 import playlistRoute from "./routes/playlist.mjs";
 import catchulRoute from "./routes/catchup/index.mjs";
+import channel_filterRoute from "./routes/channel_filter.mjs";
 
 app.use("/", loginRoute);
 app.use("/", ipRoute);
 app.use("/", channelsRoute);
 app.use("/", playlistRoute);
+app.use("/", channel_filterRoute);
 app.use("/catchup", catchulRoute);
 
 // app.use(express.static(path.join(__dirname, "public")));
