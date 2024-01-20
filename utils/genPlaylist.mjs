@@ -72,7 +72,7 @@ export default async function genPlaylist(url, c = 0) {
         "https://jiotv.catchup.cdn.jio.com/dare_images/images/" +
         resData["logoUrl"];
       var channelCategory = genreMap[resData["channelCategoryId"]];
-      var marathi_channels = [691,612,445,755,414,617,442,691,1146,695,736,1151,153,738,232,735,441,422,1159,846,1342,1346,2763,1326,1548,1705,1706,1217,1223,1228,1273,1293,1358,1360,1412,1419,1420,1422,1423,1424,1452,1894,1933,1972,2071,2254,2424,2758];
+      var marathi_channels = [691,612,445,755,414,617,442,2935,1394,1146,695,736,1151,153,738,232,735,441,422,1159,846,1342,1346,2763,1326,1548,1705,1706,1217,1223,1228,1273,1293,1358,1360,1412,1419,1420,1422,1423,1424,1452,1894,1933,1972,2071,2254,2424,2758];
         if (marathi_channels.includes(resData["channel_id"])) {
           channelCategory = 'Marathi';
         }
