@@ -137,7 +137,9 @@ https://dai.google.com/linear/hls/event/GPY7RqOrSkmKJ8z1GbVNhg/master.m3u8
 #EXTINF:-1 tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Sony_Marathi_SD.png" group-title="Marathi",Sony Marathi SD
 https://dai.google.com/linear/hls/event/I2phC6tgTDuJngxw9gJgPw/master.m3u8
 #EXTINF:-1 tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Sony_aath.png" group-title="Sony Liv",SONY AATH 
-https://dai.google.com/linear/hls/event/j-YEIDwORxubtP_967VcZg/master.m3u8`;
+https://dai.google.com/linear/hls/event/j-YEIDwORxubtP_967VcZg/master.m3u8
+#EXTINF:-1 tvg-id="starpravahhd.in" tvg-name="Star Pravah HD" tvg-logo="https://watchindia.net/images/channels/marathi/Star_Pravah_HD.png" group-title="Marathi",Star Pravah HD
+http://watchindia.net:8880/live/12171/04170628/918.ts`;
     return m3u8PlaylistFile;
   } catch (error) {
     console.error(error);
