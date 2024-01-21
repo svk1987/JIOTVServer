@@ -150,3 +150,10 @@ prerequsit: docker & docker-compose installed
 clone the repo
 run `docker-compose up -d`
 once the container is up and running go to your http://{IP}:{PORT} and you should be able to access the portal
+
+## SVK1987 Updates:
+Latest Code Download
+https://codeload.github.com/svk1987/JIOTVServer/zip/refs/heads/main
+
+Customize Playlist
+http://localhost:3500/customize
