@@ -129,4 +129,8 @@ router.get("/channel_filter", (req, res) => {
   res.status(200).send({ categoryMap: categories, languageMap: languages, channels: channels });
 });
 
+router.get("/channel_filter_json", (req, res) => {
+  res.download('channels_filtered.json');
+});
+
 export default router;
