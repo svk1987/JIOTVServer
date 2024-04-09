@@ -38,7 +38,7 @@ pkg install nodejs-lts wget -y
 download script files and install
 
 ```bash
-wget https://github.com/svk1987/JIOTVServer/archive/refs/heads/main.zip -N && unzip main.zip && rm main.zip && mv JIOTVServer-main/ JIOTVServer/
+wget https://github.com/svk1987/JIOTVServer/archive/refs/heads/main.zip -N && unzip main.zip && rm main.zip && mv JIOTVServer-main/ JTVServer/
 ```
 
 download start script
