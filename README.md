@@ -41,6 +41,12 @@ download script files and install
 wget https://github.com/svk1987/JIOTVServer/archive/refs/heads/main.zip -N && unzip main.zip && rm main.zip && mv JIOTVServer-main/ JTVServer/
 ```
 
+Install Dependencies
+
+```bash
+cd JTVServer && npm install
+```
+
 download start script
 
 ```bash
