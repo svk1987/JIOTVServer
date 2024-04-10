@@ -90,7 +90,11 @@ router.get("/getts/:start/:end/:id", async (req, res) => {
     };
 
     try {
-      let r = await fetch(ts, options);
+      let url = ts;
+        if (!(ts.startsWith("https://") || ts.startsWith("http://")))
+        url= `https:/${ts}`
+      
+      let r = await fetch(url, options);
       let apiResponse = await r.arrayBuffer();
 
       res.set("content-type", "application/octet-stream");
