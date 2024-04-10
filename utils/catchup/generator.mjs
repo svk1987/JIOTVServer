@@ -178,6 +178,9 @@ async function getLiveM3u8(url, vbegin, vend, cookie) {
         "Accept-Encoding": "gzip",
       },
     };
+    if (!(url.startsWith("https://") || url.startsWith("http://")))
+      url= `https:/${url}`
+
     let response = await fetch(`${url}?vbegin=${vbegin}&vend=${vend}`, options);
     let baseurl = url.split("/");
     baseurl[baseurl.length - 1] = "";

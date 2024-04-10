@@ -43,7 +43,9 @@ router.get("/getts", async (req, res) => {
   const { id, ts } = req.query;
   const cookie = await getCookie(id);
   try {
-    let url = `https:/${ts}`;
+    let url = ts;
+    if (!(ts.startsWith("https://") || ts.startsWith("http://")))
+      url= `https:/${ts}`
 
     let options = {
       method: "GET",
