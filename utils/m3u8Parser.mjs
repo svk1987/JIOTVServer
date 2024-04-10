@@ -15,6 +15,7 @@ export default function parseM3u8(url, Playlist, id) {
     baseurl.pop();
     baseurl = baseurl.join("/");
     baseurl = baseurl.replace("https://jiotvmblive.cdn.jio.com", "/jiotvmblive.cdn.jio.com");
+    baseurl = baseurl.replace("https://jiotvbpkmob.cdn.jio.com", "/jiotvbpkmob.cdn.jio.com");
     const parser = new m3u8.Parser();
     parser.push(Playlist);
     parser.end();
