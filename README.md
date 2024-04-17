@@ -136,16 +136,10 @@ In order to make things work smoothly, you have to take care of the following th
    ```bash
    mkdir -p .termux/boot
    cd .termux/boot
-   nano termux-boot.sh
+   curl -o termux-boot.sh https://raw.githubusercontent.com/svk1987/JIOTVServer/main/termux-boot.sh
    ```
-5. Once inside nano write
-   ```bash
-   termux-wake-lock
-   sh start.sh
-   ```
-7. Save file and come out of nano
-8. Run ls to see if the termux-boot.sh file is present
-9. Restart Android TV
+5. Run ls to see if the termux-boot.sh file is present
+6. Restart Android TV
 
 ## Issues faced during testing
 
