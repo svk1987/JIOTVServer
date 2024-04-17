@@ -125,6 +125,28 @@ In order to make things work smoothly, you have to take care of the following th
    1. get new playlist.
    1. Load the playlist again on your TV/Laptop/Mobile.
 
+## Setup Autostart in Android TV
+1. Install Termux:Boot.apk from Play Store
+2. Enable Termux to Auto Start from Termux App properties
+   1. and Enable storage permission for it.
+   2. Enable Run in Background under Power Saver mode.
+3. Enable Termux:Boot to Auto Start from Termux:Boot App properties
+     1. Enable Run in Background under Power Saver mode.
+4. Run the below command in Termux
+   ```bash
+   mkdir -p .termux/boot
+   cd .termux/boot
+   nano termux-boot.sh
+   ```
+5. Once inside nano write
+   ```bash
+   termux-wake-lock
+   sh start.sh
+   ```
+7. Save file and come out of nano
+8. Run ls to see if the termux-boot.sh file is present
+9. Restart Android TV
+
 ## Issues faced during testing
 
 **Issue**:  Installation is not happening.
