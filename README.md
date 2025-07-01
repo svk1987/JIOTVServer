@@ -185,10 +185,15 @@ https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotv-config.toml
 
 Termux users:
 pkg update
+
 pkg install curl openssl
 
 JioTVGo Termux
-curl -fsSL https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotvgo_termux.sh | bash
+curl -O https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotvgo_termux.sh
+
+chmod +x jiotvgo_termux.sh
+
+./jiotvgo_termux.sh
 
 
 Download config file
