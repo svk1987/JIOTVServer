@@ -179,3 +179,6 @@ https://codeload.github.com/svk1987/JIOTVServer/zip/refs/heads/main
 
 Customize Playlist
 http://localhost:3500/customize
+
+Config File
+https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotv-config.toml
