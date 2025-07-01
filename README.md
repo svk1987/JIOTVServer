@@ -183,6 +183,14 @@ http://localhost:3500/customize
 Config File
 https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotv-config.toml
 
+Termux users:
+pkg update
+pkg install curl openssl
+
+JioTVGo Termux
+curl -fsSL https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotvgo_termux.sh | bash
+
+
 Download config file
-curl -O https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotv-config.toml
+curl -O https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotv_go.toml
 
