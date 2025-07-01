@@ -182,3 +182,7 @@ http://localhost:3500/customize
 
 Config File
 https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotv-config.toml
+
+Download config file
+curl -O https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotv-config.toml
+
