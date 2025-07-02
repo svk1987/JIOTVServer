@@ -184,9 +184,10 @@ Config File
 https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotv-config.toml
 
 Termux users:
-pkg update
+```bash
+pkg update && pkg install curl openssl
+````
 
-pkg install curl openssl
 
 JioTVGo Termux
 curl -O https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotvgo_termux.sh
