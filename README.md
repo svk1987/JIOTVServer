@@ -190,11 +190,12 @@ pkg update && pkg install curl openssl
 
 
 JioTVGo Termux
+```bash
 curl -O https://gitlab.com/sagarkavitake/JIOTVServer/-/raw/main/jiotvgo_termux.sh
-
 chmod +x jiotvgo_termux.sh
-
 ./jiotvgo_termux.sh
+````
+
 
 
 Download config file
